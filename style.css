@@ -1,0 +1,305 @@
+/* =====================================
+   RESET & BASE
+===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* =====================================
+   GLOSSY PINK OVERLAY (GLOBAL)
+===================================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(255, 200, 220, 0.35),
+      rgba(255, 120, 180, 0.18) 35%,
+      rgba(0, 0, 0, 0.65) 75%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =====================================
+   LAYOUT
+===================================== */
+.container {
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+  max-width: 92%;
+}
+
+/* =====================================
+   HOT PINK TEXT + YELLOW GLOW & SHADOW
+===================================== */
+
+h1 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+
+  /* HOT PINK TEXT */
+  color: #ffffff;
+
+  /* YELLOW GLOW + SHADOW */
+  text-shadow:
+    0 0 4px  rgb(255, 120, 165),
+    0 0 10px rgba(243, 106, 202, 0.95),
+    0 0 22px rgba(255, 40, 165, 0.85),
+    0 0 45px rgba(248, 20, 172, 0.7),
+    0 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 26px;
+
+  /* SAME HOT PINK (SOFTER TONE) */
+  color: #ffffff;
+
+  /* SOFTER YELLOW GLOW */
+  text-shadow:
+    0 0 3px  rgba(255, 235, 140, 0.9),
+    0 0 8px  rgba(255, 215, 90, 0.8),
+    0 0 16px rgba(255, 195, 40, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* =====================================
+   BUTTON BASE
+===================================== */
+button {
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: 900;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: softFloat 3.5s ease-in-out infinite;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* =====================================
+   RED / NO BUTTON (PLAYFUL)
+===================================== */
+.secondary {
+  background: linear-gradient(135deg, #a50422, #ff2f92);
+  color: #fff;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  box-shadow:
+    0 0 20px rgba(255, 70, 120, 0.6),
+    inset 0 0 10px rgba(255,255,255,0.15);
+  animation: teaseShake 5s ease-in-out infinite;
+}
+
+/* =====================================
+   GREEN / YES BUTTON (TEMPTING)
+===================================== */
+.green {
+  background: linear-gradient(135deg, #14f35fd9, #ff2f92);
+  color: #fff;
+  box-shadow:
+    0 0 30px #14f35fd9,
+    inset 0 0 14px rgba(255,255,255,0.35);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+/* =====================================
+   YES BUTTON SIZE PROGRESSION
+===================================== */
+.yes-small  { font-size: 1.2rem; padding: 14px 36px; }
+.yes-medium { font-size: 1.4rem; padding: 18px 44px; }
+.yes-large  { font-size: 1.7rem; padding: 22px 54px; }
+.yes-xlarge { font-size: 2rem;   padding: 26px 64px; }
+
+.yes-huge {
+  font-size: 2.5rem;
+  padding: 34px 86px;
+  box-shadow:
+    0 0 70px rgba(255, 90, 160, 1),
+    inset 0 0 20px rgba(255,255,255,0.45);
+}
+
+/* =====================================
+   FLIRTY MESSAGE
+===================================== */
+.rush-msg {
+  opacity: 0;
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: #ffd1e8;
+  transition: opacity 0.35s ease;
+}
+
+/* =====================================
+   OVERLAP ZONE (NO6)
+===================================== */
+.overlap-zone {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  margin-top: 25px;
+}
+
+#finalYesBtn {
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* =====================================
+   GLOSSY GIRLY BACKGROUNDS
+   (GIF → Pink Gradient fallback)
+===================================== */
+
+/* no1 – innocent pink gloss */
+.bg-no1 {
+  background:
+    url("gif1.gif") center / cover no-repeat,
+    radial-gradient(circle at top, #ffe5f0, #ff8fc7 45%, #c9184a 75%, #3a0f1c 100%);
+}
+
+/* no2 – candy neon pink */
+.bg-no2 {
+  background:
+    url("gif2.gif") center / cover no-repeat,
+    radial-gradient(circle at center, #ffd6e8, #ff4da6 45%, #b5179e 75%, #2b0017 100%);
+}
+
+/* no3 – naughty glossy rose */
+.bg-no3 {
+  background:
+    url("gif3.gif") center / cover no-repeat,
+    radial-gradient(ellipse at bottom, #ff85c1, #ff2f92 45%, #7a003c 75%, #140008 100%);
+}
+
+/* no4 – warm blush skin tone */
+.bg-no4 {
+  background:
+    url("gif4.gif") center / cover no-repeat,
+    radial-gradient(circle at top, #ffe8f1, #ff9ebb 45%, #c9184a 70%, #3b0a1a 100%);
+}
+
+/* no5 – cherry gloss dessert */
+.bg-no5 {
+  background:
+    url("gif5.gif") center / cover no-repeat,
+    radial-gradient(circle at center, #ff477e, #d0005a 45%, #720026 75%, #24000c 100%);
+}
+
+/* no6 – final glossy neon night */
+.bg-no6 {
+  background:
+    url("gif6.gif") center / cover no-repeat,
+    radial-gradient(circle at center, #ff5fbf 0%, #b5179e 35%, #3a0f1c 65%, #050003 100%);
+}
+
+/* yes page */
+.bg-yes {
+  background:
+    radial-gradient(circle at center, #ff9ebb, #ff2f92);
+}
+
+/* index page */
+.bg-main {
+  background:
+    radial-gradient(circle at center, #ffd1e8, #ff4da6);
+}
+
+.bg-yes {
+  background:
+    url("gif7.gif") center / cover no-repeat,
+    radial-gradient(
+      circle at center,
+      #ff5fa8 0%,
+      #ff2f92 35%,
+      #b5179e 65%,
+      #3a0f1c 100%
+    );
+}
+
+/* =====================================
+   INDEX PAGE – GIF FIRST + GLOSSY FALLBACK
+===================================== */
+
+.bg-main {
+  background:
+    url("gif8.gif") center / cover no-repeat,
+    radial-gradient(
+      circle at center,
+      #ff6fb1 0%,
+      #ff2f92 40%,
+      #b5179e 70%,
+      #3a0f1c 100%
+    );
+}
+
+
+/* =====================================
+   BUTTON ANIMATIONS
+===================================== */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 30px rgba(255, 90, 160, 0.8),
+      inset 0 0 14px rgba(255,255,255,0.35);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow:
+      0 0 60px rgba(255, 90, 160, 1),
+      inset 0 0 20px rgba(255,255,255,0.45);
+  }
+}
+
+@keyframes teaseShake {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* =====================================
+   MOBILE POLISH
+===================================== */
+@media (max-width: 600px) {
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.3rem; }
+
+  .yes-huge {
+    font-size: 2.1rem;
+    padding: 30px 64px;
+  }
+}

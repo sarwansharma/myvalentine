@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catch me 😜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Ensure free movement */
+    #runaway {
+      position: fixed;
+      z-index: 10;
+      transition: left 0.05s linear, top 0.05s linear;
+    }
+
+    #finalYesBtn {
+      min-width: 85%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+
+<body class="bg-no6">
+
+<div class="container">
+  <h1>Catch me… 😈</h1>
+  <h2>Be My Velentine..try harder</h2>
+
+  <div class="overlap-zone">
+
+    <!-- FINAL YES -->
+    <button
+      id="finalYesBtn"
+      type="button"
+      class="green yes-huge"
+      onclick="finalYes()"
+      style="opacity:0; pointer-events:none;">
+      Yes baby, I want you 💚
+    </button>
+
+    <!-- RUNAWAY -->
+    <button
+      id="runaway"
+      type="button"
+      class="secondary">
+      Catch me 😈
+    </button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const run = document.getElementById("runaway");
+    const yes = document.getElementById("finalYesBtn");
+
+    /* Unlock YES after delay */
+    setTimeout(() => {
+      yes.style.opacity = "1";
+      yes.style.pointerEvents = "auto";
+    }, 3500);
+
+    function moveFast() {
+      const padding = 20;
+      const maxX = window.innerWidth - run.offsetWidth - padding;
+      const maxY = window.innerHeight - run.offsetHeight - padding;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      run.style.left = `${x}px`;
+      run.style.top = `${y}px`;
+    }
+
+    /* SUPER SENSITIVE EVENTS */
+    run.addEventListener("mouseenter", moveFast);
+    run.addEventListener("mousemove", moveFast);
+    run.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moveFast();
+    });
+
+    /* BONUS: occasional random jump even without interaction */
+    setInterval(() => {
+      if (Math.random() > 0.6) {
+        moveFast();
+      }
+    }, 700);
+  });
+</script>
+    <audio id="bg-music" loop>
+        <source src="beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
